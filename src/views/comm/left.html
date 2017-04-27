@@ -1,0 +1,15 @@
+<div class="logo">
+	<img src="../../assets/foodzone-white.png" />
+</div>
+<div class="menu_item icon1" :class="{active:curView==='menu1'}" @click="go('index.html')">
+	<div class="menu_text">店铺信息</div>
+</div>
+<div class="menu_item icon2" :class="{active:curView==='menu2'}" @click="go('list.html')">
+	<div class="menu_text">标签词</div>
+</div>
+<div class="menu_item icon3" :class="{active:curView==='menu3'}" @click="go('/menu3')">
+	<div class="menu_text">特征词</div>
+</div>
+<div class="menu_item icon4" :class="{active:curView==='menu4'}" @click="go('/menu4')">
+	<div class="menu_text">详情图片</div>
+</div>

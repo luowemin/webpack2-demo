@@ -1,0 +1,54 @@
+html,body{
+	height: 100%;
+}
+.border{
+	border: 1px solid red;
+	height: 150px;
+}
+.h100{
+	height: 100%;
+}
+.left{
+	/*width: 200px;*/
+	/*float: left;*/
+	height: 100%;
+	background: #03895A;
+	color: white;
+	padding-left: 20px;
+	margin: 0;
+}
+.icon{
+	padding: 15px 0;
+}
+.menu_item{
+	padding: 15px 0 15px 30px;
+	border-bottom: 1px solid white;
+	cursor: pointer;
+}
+.menu_item:hover{
+	color: #DCDCDC;
+}
+.container-fluid{
+	height: 100%;
+	padding: 0 !important;
+	margin: 0;
+}
+.right{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	/*padding-left: 200px;*/
+}
+.header{
+	height: 10%;
+	background: white;
+}
+.main_container{
+	padding: 20px 20px 0 20px;
+	height: 90%;
+	background: #F0F4F4;
+}
+.main{
+	height: 100%;
+	background: white;
+}
