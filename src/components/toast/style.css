@@ -1,0 +1,29 @@
+.v-toast {
+	text-align: center;
+	position: fixed;
+	bottom: 30%;
+	width: 100%;
+	text-align: center;
+	display: none;
+}
+
+.v-toast span {
+	background-color: rgba(0, 0, 0, 0.6);
+	display: inline-block;
+	padding: 15px;
+	border-radius: 5px;
+	max-width: 80%;
+	word-break: break-word;
+	font-size: 16px;
+	color: white;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity .5s
+}
+
+.fade-enter,
+.fade-leave-active {
+	opacity: 0
+}

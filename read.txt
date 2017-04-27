@@ -1,0 +1,64 @@
+1、创建关于webpack的node项目
+	在指定位置新建一个目录作为项目目录
+	
+	npm init -y
+	创建package.json文件，这个文件是对整个node项目的描述
+	项目名称
+	npm install webpack --save-dev
+	安装webpack，这种安装是安装在当前目录下
+	还有一种安装方式是全局安装
+	npm install webpack -g
+	这种方式安装的文件默认会在C:\Users\Administrator\AppData\Roaming\npm\node_modules目录下
+	安装后可以全局使用webpack这个命令
+	
+	node项目解析
+	每个node项目的根目录中都会有一个package.json的文件，
+	在Node中，模块分为两类：一类是Node提供的模块，称为核心模块；另一类是用户编写的模块，称为文件模块
+	•  核心模块部分在Node源代码的编译过程中，编译进了二进制执行文件。在Node进程启动时，部分核心模块就被直接加载进内存中，所以这部分核心模块引入时，文件定位和编译执行这两个步骤可以省略掉，并且在路径分析中优先判断，所以它的加载速度是最快的。
+
+	•  文件模块则是在运行时动态加载，需要完整的路径分析、文件定位、编译执行过程，速度比核心模块慢。
+	http://nodejs.cn/api/documentation.html
+	这里面包含了这个模块所使用的的第三方模块，其中
+
+	config:
+	loaders:模块加载器
+	plugin:各个模块
+
+	
+reuire(param)
+	param的类型:"xx","./xx"
+	"xx":表示加载的是内置模块，
+	"./xx":当xx是目录时表示加载的是xx目录下的index.js文件
+	如果"./xx"是文件则加载该文件
+
+module.exports
+	模块定义部分，将需要对外的方法或对象返回给调用者
+	module.exports = function(){};
+	module.exports = {};
+	可以通过npm adduser,  npm publish把自己的package上传到npm仓库。
+	package.json介绍
+	node模块化编程思想npm
+	cmd，amd写法
+	
+2、webpack2的思想与配置文件的用法
+	1、webpack2
+	Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。还可以将按需加载的模块进行代码分隔，等到实际需要的时候再异步加载。
+	通过 loader 的转换，任何形式的资源都可以视作模块，比如 CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、 JSON、Coffeescript、 LESS 等。
+	我们在前端编码过程中遇到的比较多的模块就是css、js、html、img以及这些文件组合所产生的插件
+	比如jQuery、echart、d3.js等就是一个纯js插件只需要引入js文件就可以调用API实现相关功能
+	animate.css就是一个纯css的模块
+	bootstrap则是三个模块的组合字体图标文件，css文件以及js文件
+	通过对这些使用比较广泛的插件的使用和研究我们在设计自己的公共模块时也可以借鉴下
+	我们在webpack项目中建立好
+	2、webpack2与webpack1的区别
+	（路径问题）
+	3、ejs 模板公共html片段的提取，模板中图片引入问题
+	4、less用法
+	7、babel插件的用法
+	5、公共css样式提取
+3、webpack2进阶（热替换，静态资源的路径问题，第三方服务器的数据交互代理，打包部署问题）
+	6、webpack免打包第三方插件（bootstrap，jquery，vue）提升打包速度，vue与bootstrap之间的冲突问题
+	8、多页面打包配置文件的写法
+	devtool的选择问题
+	8、webpack结合express以及http-proxy-middleware模块调试第三方数据源开发（静态资源引入问题）
+	9、前端页面打包部署时路径问题
