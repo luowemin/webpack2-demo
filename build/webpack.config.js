@@ -189,8 +189,8 @@ module.exports = {
 //		}),
 		//webpack内置自动加载插件配合resolve.alias做全局插件;
 		new webpack.ProvidePlugin({
-			vue: path.resolve(__dirname, '../src/lib/vue.js'),
-			jQuery:path.resolve(__dirname, '../src/lib/jquery-2.1.0.js')//文件里遇见‘$’加载jquery;
+			vue: 'lib/vue.js',
+			jQuery:'lib/jquery-2.1.0.js'//path.resolve(__dirname, '../src/lib/jquery-2.1.0.js')//文件里遇见‘$’加载jquery;
 		})
 	],
 	devServer: { //设置本地Server;
