@@ -1,6 +1,6 @@
 require('./index.css');
 require('lib/bootstrap/css/bootstrap');
-require('lib/bootstrap/js/bootstrap');
+//require('lib/bootstrap/js/bootstrap');
 var $ = jQuery;
 var load = require('components/loading');
 var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
