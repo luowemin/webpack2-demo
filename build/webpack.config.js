@@ -11,8 +11,9 @@ module.exports = {
 	devtool: 'source-map',
 	target:"web",
 	entry: { //打包入口;
-		commons:path.resolve(__dirname, '../node_modules/vue/dist/vue.common.js'),
+		commons:['lib/jquery-2.1.0.js','lib/bootstrap/js/bootstrap.min.js','lib/vue.js'],
 		app: path.resolve(__dirname, '../src/views/index/index.js'), //打包js;
+		test:path.resolve(__dirname, '../src/views/test/index.js')
 	},
 	output: { //打包出口;
 		publicPath: "/wechat-html/", //配合devServer本地Server;
@@ -152,7 +153,13 @@ module.exports = {
 		//模板插件
 		new HtmlWebpackPlugin({
 			filename: 'index.html', //设置最后生成文件名称;
-			template: /*'html-withimg-loader!' +*/  path.resolve(__dirname,'../src/views/index/index.ejs') //设置原文件;
+			template: path.resolve(__dirname,'../src/views/index/index.ejs'),
+			chunks:['commons','app']
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'test.html', //设置最后生成文件名称;
+			template: path.resolve(__dirname,'../src/views/test/index.html'), //设置原文件;
+			chunks:['commons','test']
 		}),
 		//独立打包css插件;
 		new ExtractTextPlugin({
@@ -202,9 +209,7 @@ module.exports = {
 		alias: {
 			"components":path.resolve(__dirname,'../src/components'),
 			"assets":path.resolve(__dirname,'../src/assets'),
-			"lib":path.resolve(__dirname,'../src/lib'),
-//			'Vue':path.resolve(__dirname, '../src/lib/vue.js'),
-			
+			"lib":path.resolve(__dirname,'../src/lib'),			
 		}
 	}
 };

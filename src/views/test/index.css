@@ -1,0 +1,23 @@
+html,body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+[v-cloak]{display: none;}
+.container{
+	padding: 20px 0;
+}
+.text-right{
+	margin: 10px 0;
+}
+.operator{
+	text-align: center;
+}
+.operator>span{
+	margin: 0 10px;
+}
+.operator>span:hover{
+	margin: 0 10px;
+	font-weight: bold;
+	cursor: pointer;
+}

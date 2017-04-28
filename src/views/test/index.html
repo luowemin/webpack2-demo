@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+	</head>
+	<body>
+		<div id="app" class="container" v-cloak>
+			<div class="text-right">
+				<button type="button" class="btn btn-primary" @click="showLoading">show loading</button>
+				<button type="button" class="btn btn-primary" @click="addItem">add item</button>
+			</div>
+			<table class="table table-bordered table-hover">
+				<tr>
+					<th>#</th>
+					<th>name</th>
+					<th>sex</th>
+					<th>phone</th>
+					<th style="text-align: center;">edit</th>
+				</tr>
+				<tr v-for="(item,index) in showList()">
+					<td>{{item.id}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.sex}}</td>
+					<td>{{item.phone}}</td>
+					<td class="operator">
+						<span @click="deleteItem(item)" class="glyphicon glyphicon-trash" title="删除"></span>
+						<span @click="modifyItem(item)" class="glyphicon glyphicon-pencil" title="编辑"></span>
+					</td>
+				</tr>
+			</table>
+			<div class="text-right">
+				<nav aria-label="Page navigation">
+				  	<ul class="pagination">
+					    <li :class="{disabled:!canPre}">
+					        <a @click="prePage" aria-label="Previous">
+						        <span aria-hidden="true">&laquo;</span>
+					      	</a>
+					    </li>
+					    <li v-for="index in totalPage" :class="{active:curPage==index}"><a @click="goPage(index)">{{index}}</a></li>
+					    <li :class="{disabled:!canNext}">
+					    	<a @click="nextPage" aria-label="Next">
+					        	<span aria-hidden="true">&raquo;</span>
+					        </a>
+					    </li>
+				  	</ul>
+				</nav>
+			</div>
+			<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">input item</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-horizontal">
+							  	<div class="form-group">
+									<label class="col-sm-2 control-label">name</label>
+									<div class="col-sm-10">
+										<input type="text" v-model="name" class="form-control" placeholder="input name">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">sex</label>
+									<div class="col-sm-10">
+										<label class="radio-inline">
+										  	<input type="radio" v-model="sex" name="sex" value="man">man
+										</label>
+										<label class="radio-inline">
+										  	<input type="radio" v-model="sex" name="sex" value="woman">woman
+										</label>
+									</div>
+								</div>
+								<div class="form-group" :class="{'has-error':!vailPhone,'has-feedback':!vailPhone}">
+									<label class="col-sm-2 control-label">phone</label>
+									<div class="col-sm-10">
+										<input type="tel" v-model="phone" class="form-control" placeholder="input phone">
+										<span v-show="!vailPhone" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+										<span class="sr-only">(error)</span>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary" @click="saveOrModify">Save</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+
+		</div>
+	</body>
+
+</html>
